@@ -1,0 +1,83 @@
+{
+  "frozen_before_fit": true,
+  "n": 352,
+  "class_counts": {
+    "CN": 175,
+    "AD": 177
+  },
+  "outcome": "baseline CN=0, AD/Dementia=1",
+  "baseline": "first retained MRI; no future-diagnosis selection",
+  "clinical": [
+    "AGE",
+    "MALE",
+    "EDUCATION"
+  ],
+  "global_MRI": [
+    "CORTEX_CM3",
+    "DKT62_AREA_WEIGHTED_THICKNESS_MM"
+  ],
+  "ROI_mean_count": 62,
+  "ROI_SD_count": 62,
+  "JSD_count": 1891,
+  "models": {
+    "M0": "age + sex + education",
+    "M1": "M0 + Thickness JSD1891",
+    "M2": "M0 + cortical gray matter volume + DKT62 area-weighted mean thickness",
+    "M3": "M2 + Thickness JSD1891",
+    "M4": "M2 + 62 ROI mean thickness + 62 ROI thickness SD",
+    "M5": "M4 + Thickness JSD1891"
+  },
+  "method": "logistic ridge, glmnet alpha=0, independent traditional/JSD block penalties; intercept unpenalized",
+  "traditional_penalties": [
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "JSD_penalty_multipliers": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "allow_JSD_off": true,
+  "outer_folds": 5,
+  "inner_folds": 4,
+  "repeat_seeds": [
+    20261024,
+    20262024,
+    20263024,
+    20264024,
+    20265024
+  ],
+  "inner_seed_rule": "outer_repeat_seed + 100 + outer_fold_zero_based",
+  "selection": "minimum inner pooled log loss; ties <=1e-10 relative choose JSD-off, stronger JSD penalty, stronger traditional penalty",
+  "standardization": "training mean and population SD, independently inside each inner and outer training split; drop training-constant columns",
+  "imputation": false,
+  "class_weights": "none",
+  "threshold": 0.5,
+  "point_estimate": "average five held-out probabilities per patient, then calculate metrics on 352 unique patients",
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 2026102401,
+  "bootstrap_method": "paired class-stratified patient bootstrap of fixed repeat-averaged OOF predictions; conditional percentile 95% CI, no refitting",
+  "primary_contrasts": [
+    "M3-M2",
+    "M5-M4"
+  ],
+  "other_contrasts": [
+    "M1-M0",
+    "M2-M0",
+    "M3-M1"
+  ],
+  "uncertainty_limit": "conditional OOF bootstrap does not include full model-training and fold-dependence uncertainty; repeat dispersion descriptive, not independent replication",
+  "optimizer_gradient_tolerance": 1e-06,
+  "glmnet_thresholds": [
+    1e-12
+  ],
+  "glmnet_maxit": 100000,
+  "no_phase_site_ETIV_hippocampus_or_cognition_predictors": true,
+  "no_external_validation": true,
+  "no_outcome_driven_grid_changes": true,
+  "no_imputation": true
+}

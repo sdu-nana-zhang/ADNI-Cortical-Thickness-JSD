@@ -1,0 +1,28 @@
+﻿TEST,SCOPE,N_CHECKED,MAX_ABS_ERROR,TOLERANCE,STATUS
+classifier_input.csv,Numerical cells in retained result/input fields,711392,0,1.0000000000000002e-12,PASS
+all_scans.csv,Numerical cells in retained result/input fields,7286604,5.3290705182007522e-15,1.0000000000000002e-12,PASS
+Fixed score,Numerical cells in retained result/input fields,43116,0,1e-10,PASS
+Trajectory,Numerical cells in retained result/input fields,84,0,1e-08,PASS
+Longitudinal cognition,Numerical cells in retained result/input fields,28,3.220002042780834e-11,1e-08,PASS
+Baseline cognition,Numerical cells in retained result/input fields,252,6.5085714595625177e-12,1e-08,PASS
+MCI baseline cognition,Numerical cells in retained result/input fields,12,3.0198066269804264e-14,1e-08,PASS
+1891 edge collection,Numerical cells in retained result/input fields,90768,0,1.0000000000000002e-12,PASS
+Public ROI/JSD drivers,Numerical cells in retained result/input fields,1891,0,1e-10,PASS
+outer_patient_folds.csv,Exact participant membership and row order; no identifiers included in report,1760,0,0,PASS
+inner_patient_folds.csv,Exact participant membership and row order; no identifiers included in report,7040,0,0,PASS
+Provided numerical functions,Function signatures and bodies compared with supplied package,35,0,0,PASS
+Formal statistical functions,"R expressions for classifier, mixed models, HC3 and connection fitting",16,0,0,PASS
+Checkpoint preprocessing and probabilities,25 outer checkpoints; 100 inner training/validation partitions; six model variants,25,0,1.0000000000000002e-12,PASS
+Checkpoint participant isolation,Outer train/test and inner train/validation/test disjointness,25,0,0,PASS
+Connection refit BETA_MAX_ERROR,"One prespecified connection, L0 and L1 refitted with the same formal settings",2,0,1e-08,PASS
+Connection refit CR1_COV_MAX_ERROR,"One prespecified connection, L0 and L1 refitted with the same formal settings",2,0,1e-08,PASS
+Connection refit ESTIMATE_MAX_ERROR,"One prespecified connection, L0 and L1 refitted with the same formal settings",2,0,1e-08,PASS
+Connection refit CI_MAX_ERROR,"One prespecified connection, L0 and L1 refitted with the same formal settings",2,0,1e-08,PASS
+Full-classifier AUC and CI,All six saved-OOF AUC/CI triples; 2000 stratified fixed-prediction resamples,6,0,1.0000000000000002e-12,PASS
+Table 1 ADNI entries,All nine reported ADNI descriptive entries,9,0,0,PASS
+Table 2 ADNI rows,All eight primary estimate/CI/sample-size rows,8,3.220002042780834e-11,1e-08,PASS
+Figure 1-3 pixels,600 dpi PNG array comparison to formal figures,3,0,0,PASS
+Figure 1-3 layout,PDF render review and visible text canvas-bound checks,3,0,0,PASS
+Mathematical JSD contracts,"Configuration, ROI/edge order, triangle areas, reflected mass, upper tail and dense/sparse equivalence",1,0,1.0000000000000002e-12,PASS
+M3 parameter export,Export from the 25 formal checkpoints; parameters remain private,47425,0,0,PASS
+Repeat AUC,All six model variants across five repeats,30,0,9.9999999999999998e-13,PASS

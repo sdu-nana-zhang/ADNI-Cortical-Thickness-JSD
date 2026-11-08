@@ -1,0 +1,21 @@
+﻿FIELD,DEFINITION
+PTID,Participant key; local only
+MRI_IMAGE_ID,MRI key; local only
+MRI_DATE,MRI acquisition date; ISO date
+FOLDER,Reviewed reconstruction folder relative to ADNI_FS_ROOT
+DX.bl,"Curated baseline diagnosis; CN, MCI/LMCI/EMCI or AD"
+AGE_AT_MRI_EST,Age at MRI in years; baseline model adjustment uses the first retained MRI
+PTGENDER,Sex; Male or Female
+PTEDUCAT,Education in years
+ADAS13,MRI-linked ADAS13 assessment
+MMSE,MRI-linked MMSE assessment
+EXAMDATE,Clinical assessment date used by the formal cognitive models
+CORTEX_CM3,"Global cortex volume from aseg.stats, divided by 1000"
+DKT62_AREA_WEIGHTED_THICKNESS_MM,ROI mean thickness weighted by DKT stats surface area
+thickness__Mean__ROI,Vertex-area-weighted ROI mean from the original common-valid mask
+thickness__SD__ROI,Vertex-area-weighted ROI population SD
+JSD_0001 ... JSD_1891,Base-2 JSD in the fixed edge_dictionary.csv order
+MRI_COUNT_VALID,Count of valid MRI records before excluding singleton participants
+MULTI_VISIT_ELIGIBLE,At least two valid MRI records
+RID / VISCODE / SITE / COLPROT / MRI_Visit / DX,Ancillary metadata retained by the input builder; not added classifier predictors
+CDRSB / MOCA / MRI_YEARS_FROM_BASELINE,Retained source columns; not substituted for the ADNI primary outcomes or date-derived model time

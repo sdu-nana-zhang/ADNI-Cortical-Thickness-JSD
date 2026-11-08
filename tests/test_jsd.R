@@ -1,0 +1,23 @@
+source('src/project.R')
+source('src/surface.R')
+source('src/jsd.R')
+cfg<-thickness_config()
+stopifnot(cfg$thickness$bandwidth==.1,cfg$finite_bins==256L,
+  identical(cfg$thickness$range,c(0,6)),length(cfg$thickness$breaks)==258L,
+  is.infinite(tail(cfg$thickness$breaks,1)),identical(cfg$roi_names,surface_roi_names()))
+e<-edge_dictionary();d<-read.csv('config/edge_dictionary.csv')
+stopifnot(identical(e$ROI1,d$ROI1),identical(e$ROI2,d$ROI2),identical(e$FEATURE,d$FEATURE),nrow(e)==1891L)
+stopifnot(jsd_bits(c(1,0),c(1,0))==0,jsd_bits(c(1,0),c(0,1))==1,
+  abs(jsd_bits(c(.2,.8),c(.7,.3))-jsd_bits(c(.7,.3),c(.2,.8)))<1e-15)
+v<-rbind(c(0,0,0),c(2,0,0),c(0,3,0));f<-matrix(c(0L,1L,2L),nrow=1)
+a<-surface_vertex_areas(v,f)
+stopifnot(max(abs(a-c(1,1,1)))<1e-15,abs(sum(a)-3)<1e-15)
+r<-list(x=list(thickness=c(.001,.04,2.3,6.4)),area=c(1,2,3,4),technical_pass=TRUE,metric_available=c(thickness=TRUE))
+rois<-setNames(rep(list(r),62),cfg$roi_names)
+dense<-surface_fast_masses(rois,'thickness',cfg,cfg$linear_binning_divisor)
+sparse<-surface_fast_masses_sparse(rois,'thickness',cfg,cfg$linear_binning_divisor)
+stopifnot(ncol(dense)==257L,all(is.finite(dense)),all(dense>=0),
+  max(abs(rowSums(dense)-1))<1e-12,all(dense[,257]>0),max(abs(dense-sparse))<1e-12)
+mat<-surface_matrix_from_mass(dense)
+stopifnot(max(abs(mat-t(mat)))<1e-15,all(diag(mat)==0),max(abs(mat))<1e-12)
+cat('PASS: configuration, ROI/edge order, mesh area, base-2 JSD, reflected mass and tail, dense/sparse equivalence\n')

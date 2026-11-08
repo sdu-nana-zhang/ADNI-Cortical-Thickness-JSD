@@ -1,0 +1,16 @@
+SOFTWARE,VERSION,ROLE
+R,4.6.0,statistical models
+glmnet,5.1,ridge classifier
+nlme,3.1-169,mixed models
+Matrix,1.7-5,ridge dependency
+Python,3.12.14,analysis runtime
+numpy,2.3.5,analysis runtime
+pandas,3.0.1,analysis runtime
+openpyxl,3.1.5,input-source compatibility
+Python,3.10.6,figure runtime
+numpy,1.24.3,figure runtime
+pandas,2.3.3,figure runtime
+scipy,1.15.3,figure runtime
+matplotlib,3.7.1,figure runtime
+nibabel,5.2.0,figure surface reader
+Pillow,12.1.1,figure export

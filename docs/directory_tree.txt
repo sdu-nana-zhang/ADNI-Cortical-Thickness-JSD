@@ -1,0 +1,71 @@
+ADNI-Cortical-Thickness-JSD/
+├── .gitignore
+├── config/
+│   ├── classification.json
+│   ├── edge_dictionary.csv
+│   ├── edges.json
+│   ├── expected_results.json
+│   ├── feature_dictionary.csv
+│   ├── jsd.R
+│   └── ROI_dictionary.csv
+├── docs/
+│   ├── directory_tree.txt
+│   ├── file_manifest.csv
+│   ├── input_fields.csv
+│   ├── public_release_check.md
+│   ├── reproduction_limits.md
+│   ├── schemas/
+│   │   ├── clinical_mri.csv
+│   │   └── scan_manifest.csv
+│   ├── software_versions.csv
+│   ├── test_results.csv
+│   ├── validation_report.md
+│   └── version_audit.csv
+├── environment-figures.yml
+├── environment.yml
+├── LICENSE_NOTICE.md
+├── README.md
+├── scripts/
+│   ├── 01_roi_extraction/
+│   │   └── extract_rois.R
+│   ├── 02_jsd_calculation/
+│   │   └── calculate_jsd.R
+│   ├── 03_data_preparation/
+│   │   ├── match_clinical.py
+│   │   └── prepare_model_inputs.py
+│   ├── 04_score_derivation/
+│   │   ├── apply_score.py
+│   │   ├── evaluate_oof.py
+│   │   ├── export_parameters.R
+│   │   └── run_nested_cv.R
+│   ├── 05_longitudinal_models/
+│   │   └── fit_trajectories.R
+│   ├── 06_cognitive_models/
+│   │   ├── fit_baseline.R
+│   │   └── fit_longitudinal_cognition.R
+│   ├── 07_connection_models/
+│   │   ├── collect_edges.R
+│   │   ├── fit_edges.R
+│   │   └── prepare_edges.py
+│   ├── 08_figures_tables/
+│   │   ├── export_curves.R
+│   │   ├── figure1.py
+│   │   ├── figure2.py
+│   │   ├── figure3.py
+│   │   ├── prepare_figures.py
+│   │   ├── render_figures.py
+│   │   └── tables.py
+│   ├── check_environment.py
+│   └── check_environment.R
+├── src/
+│   ├── core_analysis.R
+│   ├── jsd.R
+│   ├── json_io.R
+│   ├── plot_common.py
+│   ├── project.py
+│   ├── project.R
+│   └── surface.R
+└── tests/
+    ├── check_public_release.py
+    ├── test_jsd.R
+    └── verify_study_results.py

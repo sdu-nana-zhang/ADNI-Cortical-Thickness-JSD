@@ -1,0 +1,12 @@
+{
+  "n_patients": 352,
+  "n_MRI": 1606,
+  "n_edges": 1891,
+  "models": [
+    "L0",
+    "L1"
+  ],
+  "Q_THRESHOLD": 0.05,
+  "implementation_id": "raw_jsd_CNAD_mixed_CR1_v2_latest",
+  "protocol_sha256": "latest_ADNI_770_model"
+}
